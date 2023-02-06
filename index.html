@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- №1 Дан инпут и абзац. По потери фокуса в инпуте запишите значение инпута в конец текста абзаца
+<input id="input" type="text">
+<p></p>
+<script>
+ let input = document.querySelector("#input")
+ let p = document.querySelector("p")
+ input.addEventListener("blur",func)
+ function func(){
+ p.textContent = input.value
+}
+</script> -->
+
+
+
+
+<!-- №2 Дано несколько инпутов, абзац и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в абзац
+ <input type="number" name="" id="first">
+ <input type="number" name="" id="second">
+ <button id="button">Сумма</button>
+ <p class="result"></p>
+ <script>
+ document.querySelector('#button').onclick = () => {
+ let first = document.querySelector('#first');
+ let second = document.querySelector('#second');
+ let sum = +first.value + +second.value;
+ document.querySelector('.result').innerHTML = sum;
+}
+ </script> -->
+
+
+<!-- №3 Дан инпут. В него вводится число. По потери фокуса найдите сумму цифр этого числа
+ <input type="number" id="task">
+    <script>
+ let getInp = document.querySelector('#task');
+        getInp.addEventListener('blur', func);
+        function func() {
+            let arrFromValue = getInp.value.split('');
+            let sum = 0;
+            for (let i = 0; i < arrFromValue.length; i += 1) {
+                sum += Number(arrFromValue[i]);
+            }
+            console.log(sum);
+        };
+    </script> -->
+
+
+<!-- №4 Дан инпут. В него вводятся числа через запятую. По потери фокуса найдите среднее арифметическое этих чисел (сумма делить на количество)
+<input type="text" id="task" value="50">
+<script>
+    let task = document.querySelector('#task');
+    task.addEventListener('blur', function(){
+        let arr = task.value.split(',');
+        let sum = 0;
+        for(let elem of arr){
+            sum += +elem;
+            task.value = sum/2;
+        }
+    });
+</script> -->
+
+
+<!-- №5 Даны 4 инпута. В первый инпут вводится ФИО через пробел. По потери фокуса запишите фамилию, имя и отчество в остальные 3 инпута.
+<p class="text1">Ваше ФИО</p>
+<input type="text" id="inp1">
+<br>
+<input type="text" id="inp2">
+<br>
+<input type="text" id="inp3">
+<br>
+<input type="text" id="inp4">
+<script>
+    let inp1 = document.querySelector('#inp1');
+    let inp2 = document.querySelector('#inp2');
+    let inp3 = document.querySelector('#inp3');
+    let inp4 = document.querySelector('#inp4');
+    inp1.addEventListener("blur",func)
+    function func(){
+    let a = inp1.value;
+    let arr = [];
+    arr.push(a);
+    arr = a.split(" ");
+    inp2.value = arr[0]
+    inp3.value = arr[1]
+    inp4.value = arr[2]
+}
+</script> -->
+
+
+
+<!-- №6 Дан инпут. В него вводится ФИО через пробел. ФИО вводится с маленькой буквы. Сделайте так, чтобы по потери фокуса инпутом, введенные фамилия, имя и отчество автоматически стали записанными с большой буквы (в этом же инпуте)
+<input id="inp" type="text">
+<script>
+    let inp = document.querySelector("#inp")
+    inp.addEventListener("blur",func)
+    function func(){
+    let a = inp.value
+    let arr = []
+    arr.push(a)
+    arr = a.split(" ")
+   for(let i = 0; i<arr.length; i++){
+    arr[i] = arr[i].slice(0,1).toUpperCase() + arr[i].slice(1)
+}
+    inp.value = arr.join(" ")
+}
+</script> -->
+
+
+<!-- №7 Дан инпут. В него вводится текст. По потери фокуса узнайте количество слов в этом тексте
+<input id="inp" type="text">
+<script>
+    let inp = document.querySelector("#inp")
+inp.addEventListener("blur",func)
+function func(){
+   let a = 0
+   let b = inp.value
+   let arr = []
+    arr.push(b)
+    arr = b.split(" ")
+   for(let i = 0; i<arr.length; i++){
+    a++
+   }
+   inp.value = a
+}
+</script> -->
+
+
+<!-- №8 Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате 2016-12-31
+<input id="inp" type="text">
+<script>
+    let inp = document.querySelector('#inp');
+    inp.addEventListener("blur",func)
+    function func(){
+        let arr = inp.value.split('.');
+        let a = arr.reverse().join('-');
+        inp.value = a
+    }
+</script> -->
+
+
+<!-- №9 Дан инпут. В него вводится слово. По нажатию на кнопку проверьте то, что это слово читается с начала и с конца одинаково (например, мадам)
+<input id="inp" type="text">
+<input id="button" type="button" value="">
+<script>
+let inp = document.querySelector("#inp")
+let button = document.querySelector("#button")
+button.addEventListener("click",func)
+function func(){
+   let b = inp.value
+   let arr1 = []
+   arr1.push(b)
+   arr1 = b.split("")
+   let arr2 = []
+   arr2.push(b)
+   arr2 = b.split("")
+   arr2 = arr2.reverse()
+   if(arr1[0] == arr2[0]){
+      inp.value = 'true'
+   }
+   else{
+      inp.value = 'false'
+   }
+console.log(arr1,arr2)
+}
+</script> -->
+
+
+<!-- №10 Дан инпут. В него вводится число. Проверьте по потери фокуса, что это число содержит внутри себя цифру 3
+<input id="inp" type="text">
+<script>
+    let inp = document.querySelector("#inp")
+    inp.addEventListener("blur",func)
+    function func(){
+     let b = inp.value
+     let arr = []
+     arr.push(b)
+     arr = b.split("")
+   for(let i = 0; i<arr.length;i++){
+   if(3 == arr[i]){
+      inp.value = 'yes'
+   }
+   else{
+      inp.value = 'no'
+   }
+}
+console.log(arr)
+}
+</script> -->
+
+
+<!-- №11 Даны несколько абзацев и кнопка. По нажатию на кнопку запишите в конец каждого абзаца его порядковый номер
+<p>stream new lovejoy ep</p>
+<p>''call me what you like''</p>
+<p>10th of February</p>
+<input id="button" type="button" value="">
+<script>
+    let p = document.querySelectorAll("p")
+let button = document.querySelector('#button')
+button.addEventListener("click",func)
+function func(){
+   for(let i = 0; i<p.length;i++){
+    p[i].textContent= p[i].textContent + (i + 1)
+}
+}
+</script> -->
+
+
+<!-- №12 Даны ссылки. Добавьте в конец каждой ссылки ее href в круглых скобках
+<a id="spn" href="https://supernatural-spn.net/episodes/3-sezon-4-seria/">Сверхестественное</a>
+<a id="lvjy" href="https://www.lvjyonline.com/">Лавджой</a>
+<script>
+let spn = document.querySelector("#spn");
+let lvjy = document.querySelector("#lvjy");
+    for(let elem of spn){
+        elem.textContent += elem.href;
+    }
+    for(let elem of lvjy){
+        elem.textContent += elem.href;
+    }
+</script> -->
+
+
+<!-- №13 Даны ссылки. Если ссылка начинается с http://, то добавьте ей в конец стрелку → (делается так: &rarr;)
+<a id="spn" href="https://supernatural-spn.net/episodes/3-sezon-4-seria/">Сверхестественное</a>
+<a id="lvjy" href="https://www.lvjyonline.com/">Лавджой</a>
+<script>
+let spn = document.querySelector("#spn");
+let lvjy = document.querySelector("#lvjy"); 
+for(let elem of spn){
+    if(elem.href.startsWith('http://')){
+        elem.textContent += elem.href + '->';
+    }
+}
+for(let elem of lvjy){
+    if(elem.href.startsWith('http://')){
+        elem.textContent += elem.href + '->';
+    }
+}
+</script> -->
+
+
+<!-- №14 Даны несколько абзацев с числами. По нажатию на любой абзац запишите в него квадрат числа, которое в нем находится
+<p id="elem1">3</p>
+<p id="elem2">6</p>
+<p id="elem3">9</p>
+<script>
+let elem1 = document.querySelector('#elem1')
+let elem2 = document.querySelector('#elem2')
+let elem3 = document.querySelector('#elem3')
+elem1.addEventListener('click',func1)
+elem2.addEventListener('click',func2)
+elem3.addEventListener('click',func3)
+    function func1(){
+        elem1.textContent = elem1.textContent ** 2;
+    }
+    function func2(){
+    elem2.textContent = elem2.textContent ** 2;
+    }
+    function func3(){
+    elem3.textContent = elem3.textContent ** 2;
+    }
+</script> -->
+
+
+<!-- №15 Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса узнайте день недели (словом), который приходится на эту дату
+<input type="text" id="inp" value="">
+<script>
+    let inp = document.querySelector("#inp");
+    inp.addEventListener('blur', func)
+        function func(){
+        let a = inp.value
+        let b = a.split(".")
+        let date = new Date(b[2], b[1]-1, b[0]);
+        let day = date.getDay();
+        let days = ['воскресение','понедельник','вторник','среда','четверг','пятница','суббота']
+        inp.value = (days[day])
+}
+</script> -->
+
+
+
+<!-- №16 Дан инпут. Реализуйте кнопочки +1, -1, которые будут увеличивать или уменьшать на 1 значение инпута. Сделайте так, чтобы это значение не могло стать меньше нуля
+<input type="text" id="inp1">
+<input type="text" id="inp2">
+<input type="button" id="button1">
+<input type="button" id="button2">
+<script>
+let inp1 = document.querySelector("#inp1")
+let inp2 = document.querySelector("#inp2")
+let button1 = document.querySelector("#button1")
+let button2 = document.querySelector("#button2")
+button1.addEventListener("click", func1)
+button2.addEventListener("click", func2)
+function func1(){
+   inp1.value++
+}
+function func2(){
+   let a = inp2.value
+   if(a > 0){
+      inp2.value--
+   }
+}
+</script> -->
+
+
+<!-- №17 Дан инпут. Даны абзацы. Пусть в этот инпут записывается суммарное количество нажатий по этим абзацам
+<input type="text" name="" id="inp">
+<p id="p1">the wordl is shit</p>
+<p id="p2">and people sucks</p>
+<p id="p3">xd</p>
+<script>
+let inp = document.querySelector("#inp")
+let p1 = document.querySelector("#p1")
+let p2 = document.querySelector("#p2")
+let p3 = document.querySelector("#p3")
+p1.addEventListener("click", func1)
+p2.addEventListener("click", func2)
+p3.addEventListener("click", func3)
+function func1(){
+   inp.value = +inp.value + 1
+}
+function func2(){
+    inp.value = +inp.value + 1
+ }
+ function func3(){
+    inp.value = +inp.value + 1
+ }
+</script> -->
+
+
+<!-- №18 На странице есть дивы. В них есть текст. Обойдите все дивы и обрежьте тот текст, который в них стоит так, чтобы он стал длиной 10 символов. И добавьте троеточие в конец обрезанного текста
+<div>
+I see a little silhouette of a man
+Scaramouch, scaramouch will you do the fandango
+Thunderbolt and lightning - very very frightening me
+</div>
+<div>
+Gallileo, Gallileo,
+Gallileo, Gallileo,
+Gallileo Figaro - magnifico
+</div>
+<input type="button" value="">
+<script>
+let elem = document.querySelectorAll("div")
+let button = document.querySelector("input")
+button.addEventListener('click',func)
+    function func(){
+        for(let i = 0; i < elem.length ;i++){
+        elem[i].textContent = elem[i].textContent.slice(0,10) + "..."
+        }
+}
+</script> -->
+
+
+<!-- №19 Дан инпут. В него вводится число. По потери фокуса проверьте, что в нем лежит число от 1 до 100. Если это так - покрасьте инпут в зеленый цвет, а если не так - в красный
+<input type="text" name="" id="">
+<script>
+let elem = document.querySelector("input")
+elem.addEventListener("blur",func)
+function func(){
+  let a = +elem.value
+  if( a >= 1  && a < 101){
+   elem.style.color = 'green'
+  }
+  else{
+   elem.style.color = 'red'
+  }
+}
+</script> -->
+
+
+<!-- №20 Дан инпут и кнопка. По нажатию на кнопку сгенерируйте случайную строку из 8-ми символов и запишите в инпут
+<input type="text" id="inp">
+<input type="button" value="" id="button">
+<script>
+let inp = document.querySelector("#inp")
+let button = document.querySelector("#button")
+button.addEventListener("click",func)
+function func(){
+  let a = ""
+  let b = "qwertyuiop[]asdfghjkl;'zxcvbnm,./1234567890+-*/!@#$%^&*()_+|№;%:?*()_+"
+  for(let i = 0; i<8; i++){
+    a += b.charAt(Math.floor(Math.random() * b.length))
+  }
+  inp.value = a
+}
+</script> -->
+
+
+<!-- №21 Дан инпут и кнопка. Пользователь вводит в инпут какую-то строку. По нажатию на кнопку перемешайте введенные символы случайным образом и запишите ее обратно в инпут
+<input type="text" id="inp">
+<input type="button" value="" id="button">
+<script>
+let inp = document.querySelector("#inp")
+let button = document.querySelector("#button")
+button.addEventListener("click",func)
+function func(){
+  let a = ""
+  let b = inp.value
+  for(let i = 0; i<b.length; i++){
+    a += b.charAt(Math.floor(Math.random() * b.length))
+  }
+  inp.value = a
+}
+</script> -->
+
+
+<!-- №22 Дан инпут, кнопка и абзац. В инпут вводится температура в градусах Фаренгейта. По клику на кнопку выведите в абзац температуру в градусах Цельсия
+<input type="text" id="inp">
+<p id="p"></p>
+<input type="button" value="" id="button">
+<script>
+let inp = document.querySelector("#inp")
+let p = document.querySelector("#p")
+let button = document.querySelector("#button")
+button.addEventListener("click",func)
+function func(){
+  p.textContent = 5/9 * (inp.value - 32)
+}
+</script> -->
+
+
+<!-- №23 Дан инпут, кнопка и абзац. В инпут вводится число. По нажатию на кнопку выведите в абзац факториал этого числа
+<input type="text" id="inp">
+<p id="p"></p>
+<input type="button" value="" id="button">
+<script>
+let inp = document.querySelector("#inp")
+let p = document.querySelector("#p")
+let button = document.querySelector("#button")
+button.addEventListener("click",func)
+function func() {
+    let a = inp.value
+    for (let i = a - 1; i >= 1; i--) {
+      a= a * i; 
+    }
+    p.textContent = a
+  }
+</script> -->
+
+
+<!-- №24 Даны 3 инпута, кнопка и абзац. В инпуты вводятся коэффициенты квадратного уравнения. По нажатию на кнопку найдите корни этого уравнения и выведите их в абзац
+<input type="text" name="" id="inp1">
+<input type="text" name="" id="inp2">
+<input type="text" name="" id="inp3">
+<p id="p"></p>
+<input type="button" value="" id="button">
+<script>
+let inp1 = document.querySelector("#inp1")
+let inp2 = document.querySelector("#inp2")
+let inp3 = document.querySelector("#inp3")
+let p = document.querySelector("#p")
+let button = document.querySelector("#button")
+button.addEventListener("click",func)
+function func(){
+    let a = inp1.value
+    let b = inp2.value
+    let c = inp3.value
+    let x = b*b-4*a*c
+    if (x<0){
+        x1 = "нет корней"
+        x2 = "нет корней"
+    }
+    else if (x===0){
+        x1=-b/(2*a)
+        x2=x1
+    }
+    else {
+        x1=(-b+Math.sqrt(x))/(2*a)
+        x2=(-b+Math.sqrt(x))/(2*a)
+    }
+    p.textContent = x1+" "+x2
+}
+</script> -->
+
+</body>
+</html>
